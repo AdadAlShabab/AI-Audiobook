@@ -1,6 +1,6 @@
 import streamlit as st
 from PyPDF2 import PdfReader
-from docx import Document
+#from docx import Document
 import pyttsx3
 
 #from io import BytesIO
@@ -43,16 +43,6 @@ def main():
                 speaker.runAndWait()
                 st.success("Audio generated successfully!")
 
-
-        elif file_extension == "docx":
-            doc = Document(uploaded_file)
-            num_pages = len(doc.sections)
-            selected_pages = st.multiselect("Select pages", range(1, num_pages + 1))
-            selected_pages = [int(page) for page in selected_pages]
-
-            for page in selected_pages:
-                st.write(f"Page {page}")
-                st.write(doc.sections[page - 1].text)
     elif uploaded_file is None:
         st.error("Please upload a file")
 
