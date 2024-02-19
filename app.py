@@ -42,13 +42,8 @@ def main():
                 speaker.say(text)        
                 speaker.runAndWait()
                 st.success("Audio generated successfully!")
-
     elif uploaded_file is None:
         st.error("Please upload a file")
-
-
-
-
 
 if __name__ == "__main__":
     main()
